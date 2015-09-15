@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+<style>
+h1 {
+	display:inline;
+}
+table td,th{
+	padding:20px;
+}
+table {
+	text-align:center;
+}
+a {
+	text-decoration:none;
+}
+table tr:nth-child(odd) {
+	background-color:#b8d1f3;;
+}
+table tr:nth-child(even) {
+	background-color:grey;
+}
+</style>
+<title>Template</title>
+</head>
+<body>
+
+<table>
+<tr>
+<th colspan="3"> @ {{ me }}sestopal</th>
+</tr>
+
+<tr>
+<td colspan="3">
+<span> Follows </span>
+</td>
+</tr>
+
+{% for user in notme %}
+<td>{{user}}<a href="remove_follow/{{user.id}}"> Unfollow </a></td>
+{% endfor %}
+
+<tr>
+<td colspan="3">
+<span> Unfollows </span>
+</td>
+</tr>
+
+{% for user in notfollow %}
+<td>{{ user }}<a href="add_follow/{{user.id}}"> Follow </a></td>
+{% endfor %}
+
+</table>
+</body>
+</html>
